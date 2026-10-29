@@ -23,6 +23,26 @@ No build step or package installation is required. Open `index.html` in a browse
 
 The page loads `js/data.js` before `js/app.js`; the app reads the `PORTFOLIO_DATA` object to populate the portfolio. `js/main.js` is not included by `index.html`.
 
+## Deploy to GitHub Pages or Vercel
+
+This is a static website. Deploy the project root as-is; do not install dependencies or configure a build command.
+
+### GitHub Pages
+
+1. Create a GitHub repository and upload the project files. Keep `.venv/` out of the repository; the included `.gitignore` excludes it.
+2. In the repository, open **Settings → Pages**.
+3. Under **Build and deployment**, choose **Deploy from a branch**, select the `main` branch and `/(root)`, then save.
+4. Wait for the Pages deployment to finish and open the URL shown in the Pages settings.
+
+### Vercel
+
+1. Import the GitHub repository into Vercel.
+2. Set the framework preset to **Other** and the root directory to the project root.
+3. Leave the build command and output directory empty; there is no build step.
+4. Deploy. The entry point is `index.html` and its CSS, JavaScript, image, and resume paths are relative to the project root.
+
+The contact form opens the visitor's default email app with the message filled in. Because this site is static, it does not send messages through a server.
+
 ## Update the portfolio content
 
 Edit `PORTFOLIO_DATA` in [`js/data.js`](js/data.js). Keep the existing property names and data shapes because the rendering code expects them.
@@ -54,4 +74,3 @@ Replace sample project, certification, and social URLs in `js/data.js` with the 
 - HTML5
 - CSS3
 - JavaScript (no framework or build system)
-
