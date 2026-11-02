@@ -1,1 +1,75 @@
-# My-Portfolio
+# Sheraz Ahmad Portfolio
+
+A responsive, single-page portfolio website built with HTML, CSS, and vanilla JavaScript. The page presents profile and contact information, skills, projects, experience, education, certifications, testimonials, and social links.
+
+## Project structure
+
+```text
+.
+├── index.html                 # Page structure and entry point
+├── styles.css                 # Layout, visual styles, and responsive rules
+├── data.js                    # Portfolio content in PORTFOLIO_DATA
+├── app.js                     # Page behavior and content rendering
+├── hero-portrait.jpg          # Profile image
+├── Sheraz_Ahmad_Resume.pdf    # Downloadable resume
+├── README.md                  # Project notes and deployment instructions
+└── .gitignore                 # Ignores local environment folders like .venv
+```
+
+## Run the website
+
+No build step or package installation is required. Open `index.html` in a browser. For a more reliable local preview, serve the project folder with any static web server and visit the local address it provides.
+
+The page loads `data.js` before `app.js`; the app reads the `PORTFOLIO_DATA` object to populate the portfolio.
+
+## Deploy to GitHub Pages or Vercel
+
+This is a static website. Deploy the project root as-is; do not install dependencies or configure a build command.
+
+### GitHub Pages
+
+1. Create a GitHub repository and upload the project files. Keep `.venv/` out of the repository; the included `.gitignore` excludes it.
+2. In the repository, open **Settings → Pages**.
+3. Under **Build and deployment**, choose **Deploy from a branch**, select the `main` branch and `/(root)`, then save.
+4. Wait for the Pages deployment to finish and open the URL shown in the Pages settings.
+
+### Vercel
+
+1. Import the GitHub repository into Vercel.
+2. Set the framework preset to **Other** and the root directory to the project root.
+3. Leave the build command and output directory empty; there is no build step.
+4. Deploy. The entry point is `index.html` and its CSS, JavaScript, image, and resume paths are relative to the project root.
+
+The contact form opens the visitor's default email app with the message filled in. Because this site is static, it does not send messages through a server.
+
+## Update the portfolio content
+
+Edit `PORTFOLIO_DATA` in [`data.js`](data.js). Keep the existing property names and data shapes because the rendering code expects them.
+
+- `personal`: name, role titles, introduction, contact details, location, profile image, resume path, and summary statistics.
+- `resume`: resume summary, address, resume projects, skill groups, and certification names.
+- `skills`: skill categories, icons, display type (`progress` or `tags`), and skill items.
+- `projects`: portfolio project cards and case studies. Each project has an `id`, title, year, category, description, technologies, links, image, and case-study details.
+- `experience`: job title, company, dates, and responsibility list.
+- `education`: degree, institution, location, dates, and optional focus or technologies.
+- `certifications`: certification name, issuer, issue date, verification link, and badge icon.
+- `testimonials`: quote, name, role, and company.
+- `socials`: network name, profile URL, and SVG icon.
+
+When adding an item to an array, copy the shape of a nearby item and separate entries with commas. Keep project IDs unique. Use valid URLs for links and paths relative to `index.html` for local assets.
+
+### Change the profile image or resume
+
+1. Add the replacement image or PDF to the project root (or another project folder).
+2. Update `personal.avatarUrl` or `personal.resumeUrl` in `data.js` to match its relative path.
+3. Keep the corresponding file in the project so the browser can load it.
+
+### Update external links
+
+Replace sample project, certification, and social URLs in `data.js` with the correct destinations. Check the page in a browser after editing to confirm the links and content render as expected.
+
+## Technologies
+
+- HTML5
+- CSS3
+- JavaScript (no framework or build system)
